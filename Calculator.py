@@ -2,9 +2,6 @@ from tkinter import *
 
 class calc:
 
-    global value1
-    global value2
-
     def __init__(self,master):
         master.title('Calculator')
         master.geometry()
@@ -32,7 +29,7 @@ class calc:
 
         self.buttonres = Button(frame,text = "=",width = 3,fg = "Black",command = self.buttonres).grid(row = 5, column = 2 ,columnspan = 1)
 
-        self.editor.grid(row = 1,column = 0,columnspan = 8,pady = 4)
+        self.editor.grid(row = 1,column = 0,columnspan = 8,sticky = W+E)
 
     def buttonClick(self,number):
         self.editor.insert(END,number)
@@ -44,7 +41,7 @@ class calc:
         self.enterance = self.editor.get()
         try:
             self.results = eval(self.enterance)
-        except SyntaxError or NameError:
+        except SyntaxError or NameError or Exception:
             self.editor.delete(0,END)
             self.editor.insert(0,'Invalid Input!')
         else:
