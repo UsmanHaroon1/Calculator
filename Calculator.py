@@ -44,6 +44,9 @@ class calc:
         except SyntaxError or NameError or Exception:
             self.editor.delete(0,END)
             self.editor.insert(0,'Invalid Input!')
+        except ZeroDivisionError:
+            self.editor.delete(0,END)
+            self.editor.insert(0,"Zero divisor error")
         else:
             self.editor.delete(0,END)
             self.editor.insert(0,self.results)
